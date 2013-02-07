@@ -9,7 +9,7 @@
 ; Port IO is hard-coded to Primary : 0x01F0 - 0x01F7, 0x03F6
 ; Secondary Bus would be 0x0170 - 0x0177, 0x0376
 
-hdd_setup:
+init_hdd:
 ; Probe for PATA hard drive
 	mov dx, 0x01F0
 	mov [ata_base], dx

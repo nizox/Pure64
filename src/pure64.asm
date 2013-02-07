@@ -721,8 +721,8 @@ nohddhalt:
 %include "init/ioapic.asm"
 %include "init/smp.asm"
 
-%include "interfaces/ahci.asm"
-;%include "interfaces/pio.asm"
+;%include "interfaces/ahci.asm"
+%include "interfaces/pio.asm"
 
 %include "syscalls.asm"
 %include "interrupt.asm"
