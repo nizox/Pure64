@@ -15,6 +15,9 @@
 ; Unix - cat pure64.sys kernel64.sys > pure64.sys
 ; Max size of the resulting pure64.sys is 28672 bytes
 
+%ifndef KERNEL_MAGIC
+%define KERNEL_MAGIC 0x52454D45
+%endif
 
 USE16
 ORG 0x00008000
@@ -662,7 +665,7 @@ no_msg_HDD:
 
 ; Verify that the BareMetal OS kernel was loaded
 	mov eax, [0x00100008]
-	cmp eax, 0x52454D45		; Match against the Pure64 binary
+	cmp eax, KERNEL_MAGIC		; Match against the Pure64 binary
 	je kernelok
 	mov rsi, msg_invalidkernel
 	call os_print_string
